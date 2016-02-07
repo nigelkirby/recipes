@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0a9839af1fec4f259d70f47be1809de6",
-    "content-hash": "7e18c7b727913937faa659a0c1c71ab9",
+    "hash": "d3198f7488b7b8b7898a50ea57ee3da2",
+    "content-hash": "69c66b9a2e89d791d89c3edf51ba2f93",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -341,6 +341,58 @@
             "time": "2015-06-10 10:35:13"
         },
         {
+            "name": "friendsofcake/bootstrap-ui",
+            "version": "v0.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfCake/bootstrap-ui.git",
+                "reference": "89f360ab0a30469e1bd19b92ccd8b82232f376a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfCake/bootstrap-ui/zipball/89f360ab0a30469e1bd19b92ccd8b82232f376a0",
+                "reference": "89f360ab0a30469e1bd19b92ccd8b82232f376a0",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0"
+            },
+            "require-dev": {
+                "cakephp/cakephp-codesniffer": "dev-master",
+                "phpunit/phpunit": "4.1.*",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "BootstrapUI\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jad Bitar",
+                    "homepage": "http://jadb.io",
+                    "role": "Author"
+                },
+                {
+                    "name": "Others",
+                    "homepage": "https://github.com/friendsofcake/bootstrap-ui/graphs/contributors"
+                }
+            ],
+            "description": "Twitter Bootstrap 3 support for CakePHP 3",
+            "homepage": "http://github.com/friendsofcake/bootstrap-ui",
+            "keywords": [
+                "bootstrap",
+                "cakephp",
+                "twitter"
+            ],
+            "time": "2015-12-12 18:56:46"
+        },
+        {
             "name": "mobiledetect/mobiledetectlib",
             "version": "2.8.19",
             "source": {
@@ -393,6 +445,57 @@
                 "php mobile detect"
             ],
             "time": "2015-12-24 16:37:50"
+        },
+        {
+            "name": "php-units-of-measure/php-units-of-measure",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PhpUnitsOfMeasure/php-units-of-measure.git",
+                "reference": "2424d6444333603c04bc16bc864cd0b45730ea65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhpUnitsOfMeasure/php-units-of-measure/zipball/2424d6444333603c04bc16bc864cd0b45730ea65",
+                "reference": "2424d6444333603c04bc16bc864cd0b45730ea65",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "replace": {
+                "triplepoint/php-units-of-measure": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.8.*",
+                "squizlabs/php_codesniffer": "2.2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpUnitsOfMeasure\\": "source/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Hanson",
+                    "email": "jonathan@jonathan-hanson.org",
+                    "homepage": "http://www.jonathan-hanson.org/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP library for converting between standard units of measure.",
+            "homepage": "https://github.com/PhpUnitsOfMeasure/php-units-of-measure",
+            "keywords": [
+                "conversion",
+                "data",
+                "measurements"
+            ],
+            "time": "2015-12-12 19:31:49"
         },
         {
             "name": "psr/log",
