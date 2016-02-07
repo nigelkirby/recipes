@@ -15,6 +15,7 @@ php:
     - .:/var/www
   links:
     - db
+    - test_db
   privileged: true
 db:
   image: sameersbn/mysql
@@ -24,5 +25,15 @@ db:
    - /var/lib/mysql
   environment:
    - DB_NAME=recipe
+   - DB_USER=admin
+   - DB_PASS=admin
+test_db:
+  image: sameersbn/mysql
+  ports:
+   - "33063:3306"
+  volumes:
+   - /var/lib/mysql
+  environment:
+   - DB_NAME=test_recipe
    - DB_USER=admin
    - DB_PASS=admin
