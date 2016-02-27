@@ -1,26 +1,19 @@
-# CakePHP Application Skeleton
+# Recipe App
 
-[![Build Status](https://api.travis-ci.org/cakephp/app.png)](https://travis-ci.org/cakephp/app)
-[![License](https://poser.pugx.org/cakephp/app/license.svg)](https://packagist.org/packages/cakephp/app)
-
-A skeleton for creating applications with [CakePHP](http://cakephp.org) 3.x.
-
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+A website for collecting recipes
 
 ## Installation
+    
+Must have Docker installed, simply clone repo and run:
 
-1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+    composer update
+    docker-compose up
 
-If Composer is installed globally, run
-```bash
-composer create-project --prefer-dist cakephp/app [app_name]
-```
+Connect to the php docker container (kitematic is the easiest way to access it, otherwise reference how to access it 
+from command line) and run the following from the /var/www dir:
 
-You should now be able to visit the path to where you installed the app and see
-the setup traffic lights.
+    bin/cake migrations migrate
+    
+Kitematic will have a link to the nginx server's IP, add that to your hosts file associated with `recipes.dev`, you will
+then be able to access the site from: http://recipes.dev:8080/
 
-## Configuration
-
-Read and edit `config/app.php` and setup the 'Datasources' and any other
-configuration relevant for your application.
