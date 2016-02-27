@@ -4,16 +4,15 @@ A website for collecting recipes
 
 ## Installation
     
-Must have Docker installed, simply clone repo and run:
+Must have Docker and composer to run, if you don't have composer it is included in the php container, simply clone repo and run:
 
-    composer update
-    docker-compose up
-
-Connect to the php docker container (kitematic is the easiest way to access it, otherwise reference how to access it 
-from command line) and run the following from the /var/www dir:
-
-    bin/cake migrations migrate
+    docker-compose up -d
+    docker-compose run php composer install -d /var/www
+    docker-compose run php /var/www/bin/cake migrations migrate
     
-Kitematic will have a link to the nginx server's IP, add that to your hosts file associated with `recipes.dev`, you will
-then be able to access the site from: http://recipes.dev:8080/
+Figure out the IP of the web container and add it to your local machine hosts file as:
 
+    IP recipes.dev
+    
+You can then access the site from http://recipes.dev:8080/ (provided your docker-compose up command didn't detect a
+conflict on port 8080, if it did check which port it exposed).
