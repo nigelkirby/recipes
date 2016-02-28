@@ -62,7 +62,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => '__SALT__',
+        'salt' => 'd2fce3f6f1f95a3ce6675579f481bdd5a5830a76e968a3ee7113c9f4bf170518',
     ],
 
     /**
@@ -208,16 +208,11 @@ return [
             'className' => 'Cake\Database\Connection',
             'driver' => 'Cake\Database\Driver\Mysql',
             'persistent' => false,
-            'host' => 'localhost',
-            /**
-             * CakePHP will use the default DB port based on the driver selected
-             * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
-             * the following line and set the port accordingly
-             */
-            //'port' => 'nonstandard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'my_app',
+            'host' => 'db',
+            'port' => '3306',
+            'username' => 'admin',
+            'password' => 'admin',
+            'database' => 'recipe',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
@@ -250,11 +245,11 @@ return [
             'className' => 'Cake\Database\Connection',
             'driver' => 'Cake\Database\Driver\Mysql',
             'persistent' => false,
-            'host' => 'localhost',
-            //'port' => 'nonstandard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'test_myapp',
+            'host' => 'test_db',
+            'port' => '3306',
+            'username' => 'admin',
+            'password' => 'admin',
+            'database' => 'test_recipe',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,

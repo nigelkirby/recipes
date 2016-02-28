@@ -10,11 +10,12 @@ Build the docker containers provided:
     docker build -t recipes/php images/php
     docker build -t recipes/nginx images/nginx
     
-Once the containers are built, use docker-compose to get all the containers running and linked. The run some init
-commands:
+Once the containers are built, use docker-compose to get all the containers running and linked. Then run composer, 
+copy the provided config/app.default.php to config/app.php and run migrations:
 
     docker-compose up -d
     docker-compose run php composer install -d /var/www
+    cp config/app.default.php config/app.php
     docker-compose run php /var/www/bin/cake migrations migrate
     
 Figure out the IP of the web container and add it to your local machine hosts file as:
