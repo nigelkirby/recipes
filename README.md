@@ -4,7 +4,14 @@ A website for collecting recipes
 
 ## Installation
     
-Must have Docker installed, simply clone repo and run:
+Must have Docker installed, first clone repo and enter it, all proceeding commands will be run from the cloned dir. 
+Build the docker containers provided:
+
+    docker build -t recipes/php images/php
+    docker build -t recipes/nginx images/nginx
+    
+Once the containers are built, use docker-compose to get all the containers running and linked. The run some init
+commands:
 
     docker-compose up -d
     docker-compose run php composer install -d /var/www

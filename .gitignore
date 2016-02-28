@@ -4,5 +4,4 @@
 /logs/*
 /.idea/*
 /.idea/scopes/*
-/bin/*
 .DS_Store
