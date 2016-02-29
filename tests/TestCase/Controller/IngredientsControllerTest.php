@@ -3,6 +3,7 @@ namespace App\Test\TestCase\Controller;
 
 use App\Controller\IngredientsController;
 use Cake\TestSuite\IntegrationTestCase;
+use Cake\ORM\TableRegistry;
 
 /**
  * App\Controller\IngredientsController Test Case
@@ -26,7 +27,25 @@ class IngredientsControllerTest extends IntegrationTestCase
      */
     public function testIndex()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        //http request
+        $this->get('/ingredients');
+        $this->assertResponseOk();
+
+        //ajax request
+        $this->get('/ingredients.json');
+        $this->assertResponseOk();
+    }
+
+    public function testIndexQueryData()
+    {
+        $this->get('/ingredients?page=1');
+        $this->assertResponseOk();
+
+        $this->get('/ingredients?page=1&sort=created');
+        $this->assertResponseOk();
+
+        $this->get('/ingredients?page=1&sort=created&direction=desc');
+        $this->assertResponseOk();
     }
 
     /**
@@ -36,7 +55,13 @@ class IngredientsControllerTest extends IntegrationTestCase
      */
     public function testView()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        //http request
+        $this->get('/ingredients/view/1');
+        $this->assertResponseOk();
+
+        //ajax request
+        $this->get('/ingredients/view/1.json');
+        $this->assertResponseOk();
     }
 
     /**
@@ -46,7 +71,17 @@ class IngredientsControllerTest extends IntegrationTestCase
      */
     public function testAdd()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $data = [
+            'name' => 'spice',
+            'unit' => 'T'
+        ];
+
+        $this->post('/ingredients/add',$data);
+        $this->assertResponseSuccess();
+
+        $articles = TableRegistry::get('Ingredients');
+        $query = $articles->find()->where(['name' => $data['name']]);
+        $this->assertEquals(1, $query->count());
     }
 
     /**
@@ -56,7 +91,19 @@ class IngredientsControllerTest extends IntegrationTestCase
      */
     public function testEdit()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $data = [
+            'name' => 'spice',
+            'unit' => 'T'
+        ];
+
+        $this->post('/ingredients/edit/1',$data);
+        $this->assertResponseSuccess();
+
+        $articles = TableRegistry::get('Ingredients');
+        $query = $articles->find()->where(['name' => $data['name']]);
+        $this->assertEquals($query->first()->unit,$data['unit']);
+        $this->assertEquals(1, $query->count());
+
     }
 
     /**
@@ -66,6 +113,13 @@ class IngredientsControllerTest extends IntegrationTestCase
      */
     public function testDelete()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $data = [];
+
+        $this->post('/ingredients/delete/1',$data);
+        $this->assertResponseSuccess();
+
+        $articles = TableRegistry::get('Ingredients');
+        $query = $articles->find()->where(['id' => 1]);
+        $this->assertEquals(0, $query->count());
     }
 }

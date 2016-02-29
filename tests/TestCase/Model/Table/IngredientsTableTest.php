@@ -2,6 +2,7 @@
 namespace App\Test\TestCase\Model\Table;
 
 use App\Model\Table\IngredientsTable;
+use Cake\I18n\Time;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
@@ -52,22 +53,20 @@ class IngredientsTableTest extends TestCase
     }
 
     /**
-     * Test initialize method
+     * Test default find for table
      *
      * @return void
      */
-    public function testInitialize()
+    public function testFind()
     {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
+        $query = $this->Ingredients->find();
+        $this->assertInstanceOf('Cake\ORM\Query', $query);
+        $result = $query->hydrate(false)->toArray();
+        $expected = [
+            ['id' => 1, 'name' => 'Flour', 'unit' => 'cup', 'created' => new Time('2016-02-07 05:59:44'),
+                'modified' => new Time('2016-02-07 05:59:44')]
+        ];
 
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->assertEquals($expected, $result);
     }
 }

@@ -10,6 +10,11 @@ use App\Controller\AppController;
  */
 class IngredientsController extends AppController
 {
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+    }
 
     /**
      * Index method

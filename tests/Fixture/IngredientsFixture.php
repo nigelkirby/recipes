@@ -40,8 +40,8 @@ class IngredientsFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'name' => 'Lorem ipsum dolor sit amet',
-            'unit' => 'Lorem ipsum dolor sit amet',
+            'name' => 'Flour',
+            'unit' => 'cup',
             'created' => '2016-02-07 05:59:44',
             'modified' => '2016-02-07 05:59:44'
         ],
